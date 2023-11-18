@@ -13,9 +13,8 @@ void FillRandom(double* matrix, int rowCount, int columnCount)
 }
 
 void MultiplyOpenMP(double* a, int aRowCount, int aColumnCount, 
-    double* b, int bColumnCount, int threadCount, double* result)
+    double* b, int bColumnCount, double* result)
 {
-    omp_set_num_threads(threadCount);
     #pragma omp parallel for
     for (int rowIndex = 0; rowIndex < aRowCount; rowIndex++)
     {
@@ -31,11 +30,10 @@ void MultiplyOpenMP(double* a, int aRowCount, int aColumnCount,
 }
 
 int main() {
-    const int aRowCount = 500;
-    const int aColumnCount = 500;
-    const int bRowCount = 500;
-    const int bColumnCount = 500;
-    const int threadCount = 8;
+    const int aRowCount = 1500;
+    const int aColumnCount = 1500;
+    const int bRowCount = 1500;
+    const int bColumnCount = 1500;
 
     double* a = new double[aRowCount * aColumnCount];
     double* b = new double[bRowCount * bColumnCount];
@@ -45,7 +43,7 @@ int main() {
     FillRandom(b, bRowCount, bColumnCount);
 
     auto start = std::chrono::high_resolution_clock::now();
-    MultiplyOpenMP(a, aRowCount, aColumnCount, b, bColumnCount, threadCount, result);
+    MultiplyOpenMP(a, aRowCount, aColumnCount, b, bColumnCount, result);
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
