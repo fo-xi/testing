@@ -1,6 +1,6 @@
 #include "MultiplyMatrix.h"
 
-//g++ -march=native -ftree-vectorize MultiplyMatrix.cpp -o MultiplyMatrix
+// g++ -march=native -ftree-vectorize MultiplyMatrix.cpp -o MultiplyMatrix
 
 void FillRandom(double* matrix, int rowCount, int columnCount)
 {

@@ -1,5 +1,7 @@
 #include "MultiplyMatrix.h"
 
+// g++ -O2 MultiplyMatrix.cpp -o MultiplyMatrix
+
 void FillRandom(double* matrix, int rowCount, int columnCount)
 {
     srand(time(0));
@@ -13,6 +15,11 @@ void FillRandom(double* matrix, int rowCount, int columnCount)
 void MultiplySequential(double* a, int aRowCount, int aColumnCount,
     double* b, int bColumnCount, double* result)
 {
+    for (int i = 0; i < aRowCount * bColumnCount; i++)
+    {
+        result[i] = 0;
+    }
+
     for (int rowIndex = 0; rowIndex < aRowCount; rowIndex++)
     {
         for (int columnIndex = 0; columnIndex < bColumnCount; columnIndex++)
@@ -27,10 +34,10 @@ void MultiplySequential(double* a, int aRowCount, int aColumnCount,
 }
 
 int main() {
-    const int aRowCount = 1500;
-    const int aColumnCount = 1500;
-    const int bRowCount = 1500;
-    const int bColumnCount = 1500;
+    const int aRowCount = 500;
+    const int aColumnCount = 500;
+    const int bRowCount = 500;
+    const int bColumnCount = 500;
 
     double* a = new double[aRowCount * aColumnCount];
     double* b = new double[bRowCount * bColumnCount];

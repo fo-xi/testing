@@ -28,7 +28,6 @@ int alignSize(int size, int alignment)
 void MultiplyAlignment(double* a, int aRowCount, int aColumnCount,
     double* b, int bColumnCount, double* result)
 {
-    #pragma vector aligned
     for (int i = 0; i < aRowCount * bColumnCount; i++)
     {
         result[i] = 0;
@@ -53,10 +52,10 @@ void MultiplyAlignment(double* a, int aRowCount, int aColumnCount,
 
 int main()
 {
-    int aRowCount = 10;
-    int aColumnCount = 10;
-    int bRowCount = 10;
-    int bColumnCount = 10;
+    int aRowCount = 500;
+    int aColumnCount = 500;
+    int bRowCount = 500;
+    int bColumnCount = 500;
 
     int aColumnCountPrevious = aColumnCount;
 
@@ -108,16 +107,6 @@ int main()
     auto end = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     std::cout << "Time taken by function: " << duration.count() << " milliseconds" << std::endl;
-
-    for (int i = 0; i < aRowCount; i++)
-    {
-        std::cout << "Address of row " << i << " in a: " << &a[i * aColumnCount] << std::endl;
-    }
-
-    for (int i = 0; i < bRowCount; i++)
-    {
-        std::cout << "Address of row " << i << " in b: " << &b[i * bColumnCount] << std::endl;
-    }
 
     _mm_free(a_aligned);
     _mm_free(b_aligned);
