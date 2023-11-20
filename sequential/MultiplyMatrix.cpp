@@ -17,7 +17,6 @@ void MultiplySequential(double* a, int aRowCount, int aColumnCount,
     {
         for (int columnIndex = 0; columnIndex < bColumnCount; columnIndex++)
         {
-            result[rowIndex * aColumnCount + columnIndex] = 0;
             for (int k = 0; k < aColumnCount; k++)
             {
                 result[rowIndex * bColumnCount + columnIndex] += 

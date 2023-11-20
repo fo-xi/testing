@@ -30,10 +30,10 @@ void MultiplyOpenMP(double* a, int aRowCount, int aColumnCount,
 }
 
 int main() {
-    const int aRowCount = 1500;
-    const int aColumnCount = 1500;
-    const int bRowCount = 1500;
-    const int bColumnCount = 1500;
+    const int aRowCount = 10;
+    const int aColumnCount = 10;
+    const int bRowCount = 10;
+    const int bColumnCount = 10;
 
     double* a = new double[aRowCount * aColumnCount];
     double* b = new double[bRowCount * bColumnCount];

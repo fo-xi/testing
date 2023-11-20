@@ -34,10 +34,10 @@ void MultiplyVector(double* a, int aRowCount, int aColumnCount,
 }
 
 int main() {
-    const int aRowCount = 1500;
-    const int aColumnCount = 1500;
-    const int bRowCount = 1500;
-    const int bColumnCount = 1500;
+    const int aRowCount = 500;
+    const int aColumnCount = 500;
+    const int bRowCount = 500;
+    const int bColumnCount = 500;
 
     double* a = new double[aRowCount * aColumnCount];
     double* b = new double[bRowCount * bColumnCount];
